@@ -1,0 +1,20 @@
+<h1>Interest Groups</h1>
+
+<div class="row">
+  <% @interest_groups.each do |interest_group| %>
+    <a href="<%= interest_group_path(interest_group) %>">
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p class="lead"><%= interest_group.name %></p>
+            <p><%= truncate(interest_group.description, length: 30) %></p>
+          </div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to '<i class="fa fa-plus" aria-hidden="true"></i> New Interest group'.html_safe, new_interest_group_path, class: 'btn btn-primary' %>

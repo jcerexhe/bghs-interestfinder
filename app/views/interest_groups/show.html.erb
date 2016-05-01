@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-6">
+    <img src="<%= @interest_group.image %>" class="img-responsive">
+  </div>
+  <div class="col-md-6">
+    <h1>
+      <%= @interest_group.name %>
+    </h1>
+
+    <h3><%= @interest_group.members.count %> members</h3>
+
+    <p>
+      <%= @interest_group.description %>
+    </p>
+
+    <% if user_signed_in? %>
+      <% if @interest_group.members.include?(current_user) %>
+        <%= link_to "I don't like this group anymore", leave_interest_group_path, method: :delete, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'Join this group', join_interest_group_path, class: 'btn btn-primary' %>
+      <% end %>
+
+      <% if @interest_group.user == current_user %>
+        <%= link_to 'Edit', edit_interest_group_path(@interest_group), class: 'btn btn-warning' %>
+        <%= link_to 'Destroy', interest_group, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
