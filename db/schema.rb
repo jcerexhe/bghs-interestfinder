@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501114819) do
+ActiveRecord::Schema.define(version: 20160510001045) do
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "interest_group_id"
+    t.string   "name"
+    t.datetime "time"
+    t.datetime "date"
+    t.text     "description"
+    t.string   "location"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "events", ["interest_group_id"], name: "index_events_on_interest_group_id"
 
   create_table "group_members", force: :cascade do |t|
     t.integer  "user_id",           null: false

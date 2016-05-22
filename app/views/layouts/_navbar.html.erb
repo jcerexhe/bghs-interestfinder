@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to '<i class="fa fa-users" aria-hidden="true"></i> Groups'.html_safe, interest_groups_path %></li>
-        <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> Events</a></li>
+        <li><%= link_to '<i class="fa fa-calendar" aria-hidden="true"></i> Events'.html_safe, events_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to '<i class="fa fa-plus" aria-hidden="true"></i> Start a Group'.html_safe, new_interest_group_path %></li>
         <% end %>

@@ -21,8 +21,9 @@
       <% end %>
 
       <% if @interest_group.user == current_user %>
+        <%= link_to 'New Event', new_event_path(interest_group_id: @interest_group.id), class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_interest_group_path(@interest_group), class: 'btn btn-warning' %>
-        <%= link_to 'Destroy', interest_group, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Destroy', @interest_group, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
       <% end %>
     <% end %>
   </div>
